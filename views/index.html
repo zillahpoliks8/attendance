@@ -29,14 +29,14 @@
               <label>
                 First Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" required autocomplete="off" id="txtfname"/>
             </div>
         
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text"required autocomplete="off" id="txtlname" />
             </div>
           </div>
 
@@ -44,19 +44,113 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email"required autocomplete="off" id="txtemail"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password"required autocomplete="off" id="password"/>
           </div>
           
-          <button type="submit" class="button button-block" onclick="window.location.href='/regis'"/>Let me in</button>
+          <button type="submit" class="button button-block" onclick="window.location.href='/users'"/>Let me in</button>
           
           </form>
+<!--       <script>
+    function sample1(){
+        let msg = "Hello World";
+        console.log(msg);   
+        localStorage.setItem('msg','Hello');
+        sessionStorage.setItem('msg','World');
+
+        let str1 = localStorage.getItem('msg');
+        let str2 = sessionStorage.getItem('msg');
+        let str3 = str1 + str2;
+        console.log(str3);
+
+        //localStorage.removeItem('msg');
+        localStorage.clear();
+        sessionStorage.clear();
+      }
+
+    function addName1(){
+        let name = document.querySelector('#txtName').value;
+        console.log(name);
+        localStorage.setItem('name',name);
+        sessionStorage.setItem('name',name);
+      }
+
+    let names = ['Clyde','Chester'];  
+    function addName2(){
+        let name = document.querySelector('#txtName').value;
+        names.push(name);
+        localStorage.setItem('names',names);
+        let lsNames = localStorage.getItem('names');    
+        let listOfNames = lsNames.split(',');
+        console.log(listOfNames[0]);
+      }
+
+    let json_names = [{
+        name: "Clyde",
+        gender: "M"
+      },{
+        name: "Chester",
+        gender: "F"
+      }];
+    function addName(){
+        let name = document.querySelector('#txtName').value;
+        let newName = {
+          name: name,
+          gender: "M"
+        };
+        json_names.push(newName);
+
+      console.log(json_names);
+      let jns = JSON.stringify(json_names);
+      localStorage.setItem('json_names',jns); 
+
+      let jns_retrieve = JSON.parse(localStorage.getItem('json_names'));
+      console.log(jns_retrieve);
+
+      console.log("Name is " + jns_retrieve[0].name);
+      console.log("Gender is " + jns_retrieve[0].gender);
+
+  /*    let html = `
+        <tr>
+          <td>${jns_retrieve[0].name}</td>
+          <td>${jns_retrieve[0].gender}</td>
+        </tr>
+        <tr>
+          <td>${jns_retrieve[1].name}</td>
+          <td>${jns_retrieve[1].gender}</td>
+        </tr>
+      `;*/
+
+      let html = ``;
+
+      jns_retrieve.map((name)=>{
+  /*      console.log(name.name);
+        console.log(name.gender);
+        console.log("-");*/
+        html += `
+        <tr>
+          <td>${name.name}</td>
+          <td>${name.gender}</td>
+        </tr>
+        `;    
+      });
+
+      /*for(let i=0;i<jns_retrieve.length;i++){
+        console.log(jns_retrieve[i].name);
+        console.log(jns_retrieve[i].gender);
+        console.log("************");
+      }*/
+
+      document.querySelector('#tblNames').innerHTML = html;
+    } 
+
+    </script> -->
 
         </div>
         
@@ -64,7 +158,7 @@
           <h1>Welcome Back!</h1>
           
            <div class="form">
-       <form action="/MOCK_DATA">
+       <form action="/users">
         
           
             <div class="field-wrap">
@@ -81,9 +175,9 @@
             <input type="password"required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          <p class="forgot"><a href="/users">Forgot Password?</a></p>
           
-          <button class="button button-block" onclick="window.location.href='/MOCK_DATA'" />Log In</button>
+          <button class="button button-block" onclick="window.location.href='/users'" />Log In</button>
           
           </form>
 
